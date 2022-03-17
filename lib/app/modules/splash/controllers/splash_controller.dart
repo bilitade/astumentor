@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {
@@ -6,14 +8,9 @@ class SplashController extends GetxController {
   final count = 0.obs;
   @override
   void onInit() {
-    wait();
+    Timer(const Duration(seconds: 3), () => Get.toNamed("/login"));
 
     super.onInit();
-  }
-
-  Future wait() async {
-    await Future.delayed(const Duration(seconds: 5))
-        .then((value) => Get.toNamed('/login'));
   }
 
   @override
