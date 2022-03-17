@@ -8,7 +8,7 @@ class SplashController extends GetxController {
   final count = 0.obs;
   @override
   void onInit() {
-    Timer(const Duration(seconds: 3), () => Get.toNamed("/login"));
+    Timer(const Duration(seconds: 5), () => Get.toNamed("/login"));
 
     super.onInit();
   }
