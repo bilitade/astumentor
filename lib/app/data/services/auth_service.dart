@@ -11,7 +11,7 @@ class AuthService {
     //connectTimeout: 5000,
     // receiveTimeout: 3000,
   ));
-  static register({
+  Future<Object?> register({
     required name,
     required email,
     required password,
@@ -25,6 +25,19 @@ class AuthService {
       'password_confirmation': cnpass,
       'device_name': devicename
     };
+      try {
+      Response response = await _dio.post("/register", data: jsonEncode(_data));
+      if (response.statusCode == 200||response.statusCode==201) {
+        var user = User.fromJson(response.data);
+        return user;
+      }
+    } on DioError catch (e) {
+      print(e.message);
+      return e.message;
+    }
+ 
+
+
   }
 
   Future<Object?> login({

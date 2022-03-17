@@ -23,19 +23,20 @@ class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
-      name: _Paths.SPLASH,
-      page: () => SplashView(),
-      binding: SplashBinding(),
-    ),
+        name: _Paths.SPLASH,
+        page: () => SplashView(),
+        binding: SplashBinding(),
+        transition: Transition.leftToRight),
     GetPage(
       name: _Paths.LOGIN,
       page: () => LoginView(),
       binding: LoginBinding(),
+      transition: Transition.zoom,
     ),
     GetPage(
-      name: _Paths.REGISTER,
-      page: () => RegisterView(),
-      binding: RegisterBinding(),
-    ),
+        name: _Paths.REGISTER,
+        page: () => RegisterView(),
+        binding: RegisterBinding(),
+        transition: Transition.zoom),
   ];
 }

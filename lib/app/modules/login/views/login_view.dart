@@ -108,26 +108,34 @@ class LoginView extends GetWidget<LoginController> {
                                     ? const GFLoader(type: GFLoaderType.ios)
                                     : const Text("")),
                                 const SizedBox(
-                                  height: 15,
+                                  height: 10,
                                 ),
                                 GFButton(
                                   onPressed: () {
                                     controller.login();
                                   },
                                   text: "Login",
-                                  size: 40,
+                                  size: 35,
                                   color: Colors.blue,
                                   shape: GFButtonShape.pills,
                                   fullWidthButton: true,
                                 ),
                                 const SizedBox(
-                                  height: 20,
+                                  height: 10,
                                 ),
-                                InkWell(
-                                  onTap: () => Get.toNamed(Routes.REGISTER),
-                                  child: const Text(
-                                    'Register',
-                                    style: TextStyle(color: Colors.blue),
+                                const Text("Dont have Account?"),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: InkWell(
+                                    onTap: () => Get.toNamed(Routes.REGISTER),
+                                    child: const Text(
+                                      'Register',
+                                      style: TextStyle(
+                                        color: Colors.blue,
+                                        fontStyle: FontStyle.normal,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
                                   ),
                                 )
                               ],
