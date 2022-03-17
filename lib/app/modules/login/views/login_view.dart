@@ -4,9 +4,12 @@ import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../routes/app_pages.dart';
 import '../controllers/login_controller.dart';
 
-class LoginView extends GetView<LoginController> {
+class LoginView extends GetWidget<LoginController> {
+  LoginView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,63 +46,92 @@ class LoginView extends GetView<LoginController> {
                           height: 33,
                         ),
                       ),
-                      Container(
-                        child: GFCard(
-                          boxFit: BoxFit.cover,
-                          titlePosition: GFPosition.start,
-                          content: Form(
-                              child: Column(
-                            children: [
-                              TextFormField(
-                                keyboardType: TextInputType.emailAddress,
-                                autofocus: false,
-                                decoration: InputDecoration(
-                                  prefixIcon: const Icon(Icons.email),
-                                  hintText: 'Email',
-                                  contentPadding: const EdgeInsets.fromLTRB(
-                                      20.0, 15.0, 20.0, 15.0),
-                                  border: OutlineInputBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(32.0)),
+                      GFCard(
+                        boxFit: BoxFit.cover,
+                        titlePosition: GFPosition.start,
+                        content: Form(
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            key: controller.loginFormKey,
+                            child: Column(
+                              children: [
+                                TextFormField(
+                                  controller: controller.emailController,
+                                  keyboardType: TextInputType.emailAddress,
+                                  autofocus: false,
+                                  validator: (v) {
+                                    if (v!.isEmpty) {
+                                      return "Email required";
+                                    } else {
+                                      return null;
+                                    }
+                                  },
+                                  decoration: InputDecoration(
+                                    prefixIcon: const Icon(Icons.email),
+                                    hintText: 'Email',
+                                    contentPadding: const EdgeInsets.fromLTRB(
+                                        20.0, 15.0, 20.0, 15.0),
+                                    border: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(32.0)),
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              TextFormField(
-                                keyboardType: TextInputType.emailAddress,
-                                autofocus: false,
-                                decoration: InputDecoration(
-                                  prefixIcon: const Icon(Icons.password),
-                                  hintText: 'Password',
-                                  contentPadding: const EdgeInsets.fromLTRB(
-                                      20.0, 15.0, 20.0, 15.0),
-                                  border: OutlineInputBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(32.0)),
+                                const SizedBox(
+                                  height: 20,
                                 ),
-                              ),
-                              const SizedBox(
-                                height: 40,
-                              ),
-                              const GFLoader(type: GFLoaderType.ios),
-                              const SizedBox(
-                                height: 15,
-                              ),
-                              GFButton(
-                                onPressed: () {},
-                                text: "Login",
-                                size: 40,
-                                color: Colors.blue,
-                                shape: GFButtonShape.pills,
-                                fullWidthButton: true,
-                              ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                            ],
-                          )),
-                        ),
+                                TextFormField(
+                                  obscureText: true,
+                                  controller: controller.passwordController,
+                                  keyboardType: TextInputType.emailAddress,
+                                  autofocus: false,
+                                  validator: (v) {
+                                    if (v!.isEmpty) {
+                                      return "password required";
+                                    } else {
+                                      return null;
+                                    }
+                                  },
+                                  decoration: InputDecoration(
+                                    prefixIcon: const Icon(Icons.password),
+                                    hintText: 'Password',
+                                    contentPadding: const EdgeInsets.fromLTRB(
+                                        20.0, 15.0, 20.0, 15.0),
+                                    border: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(32.0)),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 40,
+                                ),
+                                Obx(() => controller.isloading.value == true
+                                    ? const GFLoader(type: GFLoaderType.ios)
+                                    : const Text("")),
+                                const SizedBox(
+                                  height: 15,
+                                ),
+                                GFButton(
+                                  onPressed: () {
+                                    controller.login();
+                                  },
+                                  text: "Login",
+                                  size: 40,
+                                  color: Colors.blue,
+                                  shape: GFButtonShape.pills,
+                                  fullWidthButton: true,
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                InkWell(
+                                  onTap: () => Get.toNamed(Routes.REGISTER),
+                                  child: const Text(
+                                    'Register',
+                                    style: TextStyle(color: Colors.blue),
+                                  ),
+                                )
+                              ],
+                            )),
                       )
                     ],
                   ),
