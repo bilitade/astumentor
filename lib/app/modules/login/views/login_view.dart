@@ -8,8 +8,6 @@ import '../../../routes/app_pages.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetWidget<LoginController> {
-  LoginView({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -112,7 +110,10 @@ class LoginView extends GetWidget<LoginController> {
                                 ),
                                 GFButton(
                                   onPressed: () {
-                                    controller.login();
+                                    if (controller.loginFormKey.currentState!
+                                        .validate()) {
+                                      controller.loginUser();
+                                    }
                                   },
                                   text: "Login",
                                   size: 35,
