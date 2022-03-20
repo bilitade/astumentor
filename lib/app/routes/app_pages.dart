@@ -1,5 +1,8 @@
 import 'package:get/get.dart';
 
+
+import '../modules/Post/bindings/post_binding.dart';
+import '../modules/Post/views/post_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -38,5 +41,11 @@ class AppPages {
         page: () => RegisterView(),
         binding: RegisterBinding(),
         transition: Transition.zoom),
+    GetPage(
+      name: _Paths.POST,
+      page: () => PostView(),
+      binding: PostBinding(),
+    ),
+   
   ];
 }

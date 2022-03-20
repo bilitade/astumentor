@@ -110,7 +110,10 @@ class RegisterView extends GetWidget<RegisterController> {
                                     : const Text("")),
                                 GFButton(
                                   onPressed: () {
-                                    controller.register();
+                                    if (controller.registerFormKey.currentState!
+                                        .validate()) {
+                                      controller.Register();
+                                    }
                                   },
                                   text: "Register",
                                   size: 40,

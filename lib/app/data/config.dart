@@ -12,3 +12,4 @@ const commentsURL = baseURL + '/comments';
 const serverError = 'Server error, check your connection';
 const unauthorized = 'Unauthorized';
 const somethingWentWrong = 'Something went wrong, try again!';
+
