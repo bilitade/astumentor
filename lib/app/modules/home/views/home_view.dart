@@ -1,6 +1,7 @@
 import '../../Post/views/post_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../panorama/views/panorama_view.dart';
 
 import 'package:get/get.dart';
 import './utils/bottomNav.dart';
@@ -27,7 +28,7 @@ class HomeView extends GetWidget<HomeController> {
       bottomNavigationBar: buildBottomNavigationMenu(context, controller),
       body: Obx(() => IndexedStack(
             index: controller.tabIndex.value,
-            children: [PostView(), ],
+            children: [PostView(), PanoramaView()],
           )),
     );
   }

@@ -1,9 +1,9 @@
-
 import 'package:get/get.dart';
 
 import '../controllers/home_controller.dart';
 
 import '../../Post/controllers/post_controller.dart';
+import '../../panorama/controllers/panorama_controller.dart';
 
 class HomeBinding extends Bindings {
   @override
@@ -15,6 +15,8 @@ class HomeBinding extends Bindings {
     Get.lazyPut<PostController>(
       () => PostController(),
     );
-    
+    Get.lazyPut<PanoramaController>(
+      () => PanoramaController(),
+    );
   }
 }

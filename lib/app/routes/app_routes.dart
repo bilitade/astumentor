@@ -9,6 +9,7 @@ abstract class Routes {
   static const REGISTER = _Paths.REGISTER;
   static const POST = _Paths.POST;
   static const PANOROMA = _Paths.PANOROMA;
+  static const PANORAMA = _Paths.PANORAMA;
 }
 
 abstract class _Paths {
@@ -19,4 +20,5 @@ abstract class _Paths {
   static const REGISTER = '/register';
   static const POST = '/post';
   static const PANOROMA = '/panoroma';
+  static const PANORAMA = '/panorama';
 }

@@ -18,7 +18,7 @@ buildBottomNavigationMenu(context, HomeController) {
           showSelectedLabels: true,
           onTap: HomeController.changeTabIndex,
           currentIndex: HomeController.tabIndex.value,
-          backgroundColor: const Color.fromRGBO(36, 54, 101, 1.0),
+          backgroundColor: Color.fromARGB(255, 25, 82, 228),
           unselectedItemColor: Colors.white.withOpacity(0.5),
           selectedItemColor: Colors.white,
           unselectedLabelStyle: unselectedLabelStyle,
@@ -68,8 +68,6 @@ buildBottomNavigationMenu(context, HomeController) {
             //   label: 'Chats',
             //   backgroundColor: const Color.fromRGBO(36, 54, 101, 1.0),
             // ),
-         
-         
           ],
         ),
       )));
