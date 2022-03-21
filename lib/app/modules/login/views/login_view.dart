@@ -8,6 +8,7 @@ import '../../../routes/app_pages.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetWidget<LoginController> {
+  final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +51,7 @@ class LoginView extends GetWidget<LoginController> {
                         content: Form(
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
-                            key: controller.loginFormKey,
+                            key: loginFormKey,
                             child: Column(
                               children: [
                                 TextFormField(
@@ -110,8 +111,7 @@ class LoginView extends GetWidget<LoginController> {
                                 ),
                                 GFButton(
                                   onPressed: () {
-                                    if (controller.loginFormKey.currentState!
-                                        .validate()) {
+                                    if (loginFormKey.currentState!.validate()) {
                                       controller.loginUser();
                                     }
                                   },

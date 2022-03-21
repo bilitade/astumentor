@@ -4,14 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../data/services/auth_service.dart';
 import '../../../data/Model/user.dart';
-import '../../../data/config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../data/Model/ApiResponse.dart';
 import '../../../routes/app_pages.dart';
 
 class RegisterController extends GetxController {
   var isloading = false.obs;
-  final registerFormKey = GlobalKey<FormState>();
+ 
   late TextEditingController nameController,
       emailController,
       passwordController,

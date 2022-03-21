@@ -11,7 +11,6 @@ import '../../../routes/app_pages.dart';
 class LoginController extends GetxController {
   var isloading = false.obs;
 
-  final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
   late TextEditingController emailController, passwordController;
 
   @override

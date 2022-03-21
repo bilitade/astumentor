@@ -4,11 +4,13 @@ import 'package:get/get.dart';
 
 import 'package:getwidget/getwidget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../controllers/register_controller.dart';
 
 class RegisterView extends GetWidget<RegisterController> {
+  final registerFormKey = GlobalKey<FormState>();
+
+  RegisterView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,9 +53,28 @@ class RegisterView extends GetWidget<RegisterController> {
                         content: Form(
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
-                            key: controller.registerFormKey,
+                            key: registerFormKey,
                             child: Column(
                               children: [
+                                TextFormField(
+                                  controller: controller.nameController,
+                                  validator: (v) {
+                                    if (v!.isEmpty) {
+                                      return "name required";
+                                    } else {
+                                      return null;
+                                    }
+                                  },
+                                  onSaved: (v) {},
+                                  keyboardType: TextInputType.emailAddress,
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    labelText: "name",
+                                    prefixIcon: const Icon(Icons.email),
+                                  ),
+                                ),
                                 TextFormField(
                                   controller: controller.emailController,
                                   validator: (v) {
@@ -110,7 +131,7 @@ class RegisterView extends GetWidget<RegisterController> {
                                     : const Text("")),
                                 GFButton(
                                   onPressed: () {
-                                    if (controller.registerFormKey.currentState!
+                                    if (registerFormKey.currentState!
                                         .validate()) {
                                       controller.Register();
                                     }

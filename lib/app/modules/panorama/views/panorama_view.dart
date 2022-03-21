@@ -7,8 +7,6 @@ import './utils/hotspobutton.dart';
 import '../controllers/panorama_controller.dart';
 
 class PanoramaView extends GetView<PanoramaController> {
-  const PanoramaView({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
