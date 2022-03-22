@@ -1,6 +1,6 @@
 // config vars
 
-const baseURL = 'http://192.168.137.1/api';
+const baseURL = 'http://192.168.137.1:8000/api';
 const loginURL = baseURL + '/login';
 const registerURL = baseURL + '/register';
 const logoutURL = baseURL + '/logout';
@@ -12,4 +12,3 @@ const commentsURL = baseURL + '/comments';
 const serverError = 'Server error, check your connection';
 const unauthorized = 'Unauthorized';
 const somethingWentWrong = 'Something went wrong, try again!';
-

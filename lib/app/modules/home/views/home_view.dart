@@ -14,21 +14,39 @@ class HomeView extends GetWidget<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff23047).withOpacity(0.5),
       appBar: AppBar(
         title: Text('ASTU MENTOR', style: GoogleFonts.lato()),
         centerTitle: true,
         actions: [
           IconButton(
               onPressed: () {
-                controller.Logout();
+                Get.defaultDialog(
+                    title: "Confrim",
+                    middleText: "Are you sure you want to logout? ",
+                    backgroundColor: Colors.white,
+                    titleStyle: TextStyle(color: Colors.black),
+                    middleTextStyle: TextStyle(color: Colors.black),
+                    onCancel: () {},
+                    onConfirm: () {
+                      controller.Logout();
+                    });
               },
               icon: const Icon(Icons.logout))
         ],
       ),
       bottomNavigationBar: buildBottomNavigationMenu(context, controller),
-      body: Obx(() => IndexedStack(
-            index: controller.tabIndex.value,
-            children: [PostView(), PanoramaView()],
+      body: Obx(() => Container(
+            decoration: const BoxDecoration(color: Colors.white),
+            child: IndexedStack(
+              index: controller.tabIndex.value,
+              children: [
+                Container(
+                  child: PostView(),
+                ),
+                PanoramaView()
+              ],
+            ),
           )),
     );
   }

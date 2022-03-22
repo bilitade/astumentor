@@ -18,7 +18,7 @@ buildBottomNavigationMenu(context, HomeController) {
           showSelectedLabels: true,
           onTap: HomeController.changeTabIndex,
           currentIndex: HomeController.tabIndex.value,
-          backgroundColor: Color.fromARGB(255, 25, 82, 228),
+          backgroundColor:Colors.blueAccent,
           unselectedItemColor: Colors.white.withOpacity(0.5),
           selectedItemColor: Colors.white,
           unselectedLabelStyle: unselectedLabelStyle,

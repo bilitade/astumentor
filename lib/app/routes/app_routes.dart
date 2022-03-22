@@ -10,6 +10,7 @@ abstract class Routes {
   static const POST = _Paths.POST;
   static const PANOROMA = _Paths.PANOROMA;
   static const PANORAMA = _Paths.PANORAMA;
+  static const COMMENT = _Paths.COMMENT;
 }
 
 abstract class _Paths {
@@ -21,4 +22,5 @@ abstract class _Paths {
   static const POST = '/post';
   static const PANOROMA = '/panoroma';
   static const PANORAMA = '/panorama';
+  static const COMMENT = '/comment';
 }

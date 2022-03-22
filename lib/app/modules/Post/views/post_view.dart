@@ -19,8 +19,16 @@ class PostView extends GetWidget<PostController> {
                 itemBuilder: (BuildContext context, int index) {
                   Post post = controller.postList[index];
                   return Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 4, vertical: 10),
+                    margin: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                        color: const Color.fromRGBO(255, 255, 255, 1),
+                        border: Border.all(
+                            width: 2,
+                            color: const Color.fromARGB(255, 216, 216, 218)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(20))),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -30,30 +38,33 @@ class PostView extends GetWidget<PostController> {
                             Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 6),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: 38,
-                                    height: 38,
-                                    decoration: BoxDecoration(
-                                        image: post.user!.image != null
-                                            ? DecorationImage(
-                                                image: NetworkImage(
-                                                    '${post.user!.image}'))
-                                            : null,
-                                        borderRadius: BorderRadius.circular(25),
-                                        color: Colors.amber),
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text(
-                                    '${post.user!.name}',
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 17),
-                                  )
-                                ],
+                              child: Container(
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 38,
+                                      height: 38,
+                                      decoration: BoxDecoration(
+                                          image: post.user!.image != null
+                                              ? DecorationImage(
+                                                  image: NetworkImage(
+                                                      '${post.user!.image}'))
+                                              : null,
+                                          borderRadius:
+                                              BorderRadius.circular(25),
+                                          color: Colors.amber),
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text(
+                                      '${post.user!.name}',
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 17),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                             post.user!.id == controller.userId
@@ -83,8 +94,14 @@ class PostView extends GetWidget<PostController> {
                                       }
                                     },
                                   )
-                                : SizedBox()
+                                : const SizedBox()
                           ],
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(top: 5),
+                          width: MediaQuery.of(context).size.width,
+                          height: 0.5,
+                          color: Colors.black26,
                         ),
                         const SizedBox(
                           height: 12,
@@ -94,8 +111,8 @@ class PostView extends GetWidget<PostController> {
                             ? Container(
                                 width: MediaQuery.of(context).size.width,
                                 height: 180,
-                                margin: EdgeInsets.only(top: 5),
-                                decoration: BoxDecoration(
+                                margin: const EdgeInsets.only(top: 5),
+                                decoration: const BoxDecoration(
                                     // image: DecorationImage(
                                     //     image: NetworkImage('${post.image}'),
                                     //     fit: BoxFit.cover),

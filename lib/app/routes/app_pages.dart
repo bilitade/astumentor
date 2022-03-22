@@ -1,3 +1,4 @@
+import 'package:astumentor/app/modules/Post/views/comment_view.dart';
 import 'package:get/get.dart';
 
 import '../modules/Post/bindings/post_binding.dart';
@@ -51,6 +52,11 @@ class AppPages {
       name: _Paths.PANORAMA,
       page: () => PanoramaView(),
       binding: PanoramaBinding(),
+    ),
+    GetPage(
+      name: _Paths.COMMENT,
+      page: () => CommentView(),
+      binding: PostBinding(),
     ),
   ];
 }
