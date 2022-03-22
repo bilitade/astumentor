@@ -1,8 +1,9 @@
-import 'package:astumentor/app/modules/Post/views/comment_view.dart';
 import 'package:get/get.dart';
 
 import '../modules/Post/bindings/post_binding.dart';
 import '../modules/Post/views/post_view.dart';
+import '../modules/comment/bindings/comment_binding.dart';
+import '../modules/comment/views/comment_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -56,7 +57,7 @@ class AppPages {
     GetPage(
       name: _Paths.COMMENT,
       page: () => CommentView(),
-      binding: PostBinding(),
+      binding: CommentBinding(),
     ),
   ];
 }

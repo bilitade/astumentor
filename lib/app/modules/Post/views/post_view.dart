@@ -1,3 +1,4 @@
+import 'package:astumentor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import '../../../data/Model/post.dart';
 import 'package:get/get.dart';
@@ -140,9 +141,9 @@ class PostView extends GetWidget<PostController> {
                             ),
                             kLikeAndComment(post.commentsCount ?? 0,
                                 Icons.sms_outlined, Colors.black54, () {
-                              // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CommentScreen(
-                              //   postId: post.id,
-                              // )));
+                              Get.toNamed(Routes.COMMENT, arguments: [
+                                {"postId": post.id}
+                              ]);
                             }),
                           ],
                         ),

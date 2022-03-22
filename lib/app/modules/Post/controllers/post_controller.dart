@@ -60,4 +60,8 @@ class PostController extends GetxController {
       Get.snackbar("error", "'${response.error}'");
     }
   }
+
+
+
+  
 }
