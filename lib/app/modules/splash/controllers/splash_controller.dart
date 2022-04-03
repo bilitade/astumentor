@@ -23,20 +23,22 @@ class SplashController extends GetxController {
     if (token == '') {
       Get.toNamed(Routes.LOGIN);
     } else {
+      Get.toNamed(Routes.HOME);
       ApiResponse response = await getUserDetail();
+      // ApiResponse response = await getUserDetail();
 
-      if (response.error == null) {
-        Get.toNamed(Routes.HOME);
-      } else if (response.error == unauthorized) {
-        SharedPreferences pref = await SharedPreferences.getInstance();
-        await pref.remove('token');
-        Get.toNamed(Routes.LOGIN);
-        Get.snackbar("message", "unauthorized");
-      } else {
-        inspect(response.error);
-        Get.toNamed(Routes.LOGIN);
-        Get.snackbar("Error", "${response.error}");
-      }
+      // if (response.error == null) {
+      //   Get.toNamed(Routes.HOME);
+      // } else if (response.error == unauthorized) {
+      //   SharedPreferences pref = await SharedPreferences.getInstance();
+      //   await pref.remove('token');
+      //   Get.toNamed(Routes.LOGIN);
+      //   Get.snackbar("message", "unauthorized");
+      // } else {
+      //   inspect(response.error);
+      //   Get.toNamed(Routes.LOGIN);
+      //   Get.snackbar("Error", "${response.error}");
+      // }
     }
   }
 }

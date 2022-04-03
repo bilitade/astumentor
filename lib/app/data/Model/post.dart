@@ -8,6 +8,7 @@ class Post {
   int? commentsCount;
   User? user;
   bool? selfLiked;
+  String? created_at;
 
   Post({
     this.id,
@@ -17,6 +18,7 @@ class Post {
     this.commentsCount,
     this.user,
     this.selfLiked,
+    this.created_at,
   });
 
 // map json to post model
@@ -25,13 +27,14 @@ class Post {
     return Post(
         id: json['id'],
         body: json['body'],
-        image: json['image'],
+        image: json['image_url'],
         likesCount: json['likes_count'],
         commentsCount: json['comments_count'],
+        created_at: json["human_readable_created_at"],
         selfLiked: json['likes'].length > 0,
         user: User(
             id: json['user']['id'],
             name: json['user']['name'],
-            image: json['user']['image']));
+            image: json['user']['profile_image_url']));
   }
 }

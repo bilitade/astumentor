@@ -18,8 +18,8 @@ buildBottomNavigationMenu(context, HomeController) {
           showSelectedLabels: true,
           onTap: HomeController.changeTabIndex,
           currentIndex: HomeController.tabIndex.value,
-          backgroundColor:Colors.blueAccent,
-          unselectedItemColor: Colors.white.withOpacity(0.5),
+          backgroundColor: Colors.blue,
+          unselectedItemColor: Color.fromARGB(255, 0, 0, 0).withOpacity(0.5),
           selectedItemColor: Colors.white,
           unselectedLabelStyle: unselectedLabelStyle,
           selectedLabelStyle: selectedLabelStyle,
@@ -33,7 +33,6 @@ buildBottomNavigationMenu(context, HomeController) {
                 ),
               ),
               label: 'Post Feed',
-              backgroundColor: const Color.fromRGBO(36, 54, 101, 1.0),
             ),
             // BottomNavigationBarItem(
             //   icon: Container(
@@ -55,19 +54,17 @@ buildBottomNavigationMenu(context, HomeController) {
                 ),
               ),
               label: 'Pano',
-              backgroundColor: const Color.fromRGBO(36, 54, 101, 1.0),
             ),
-            // BottomNavigationBarItem(
-            //   icon: Container(
-            //     margin: const EdgeInsets.only(bottom: 7),
-            //     child: const Icon(
-            //       Icons.chat,
-            //       size: 20.0,
-            //     ),
-            //   ),
-            //   label: 'Chats',
-            //   backgroundColor: const Color.fromRGBO(36, 54, 101, 1.0),
-            // ),
+            BottomNavigationBarItem(
+              icon: Container(
+                margin: const EdgeInsets.only(bottom: 7),
+                child: const Icon(
+                  Icons.chat,
+                  size: 20.0,
+                ),
+              ),
+              label: 'Chats',
+            ),
           ],
         ),
       )));

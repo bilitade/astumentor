@@ -1,8 +1,11 @@
 import 'package:astumentor/app/routes/app_pages.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:jiffy/jiffy.dart';
 import 'package:flutter/material.dart';
 import '../../../data/Model/post.dart';
 import 'package:get/get.dart';
 import './util.dart';
+import 'package:intl/intl.dart';
 
 import '../controllers/post_controller.dart';
 
@@ -63,7 +66,7 @@ class PostView extends GetWidget<PostController> {
                                       style: const TextStyle(
                                           fontWeight: FontWeight.w600,
                                           fontSize: 17),
-                                    )
+                                    ),
                                   ],
                                 ),
                               ),
@@ -98,6 +101,19 @@ class PostView extends GetWidget<PostController> {
                                 : const SizedBox()
                           ],
                         ),
+                        Padding(
+                          padding: const EdgeInsets.all(5),
+                          child: Row(
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.only(right: 8.0),
+                                child: Icon(Icons.public, size: 15),
+                              ),
+                              Text("${post.created_at}",
+                                  style: GoogleFonts.lato(fontSize: 15)),
+                            ],
+                          ),
+                        ),
                         Container(
                           margin: const EdgeInsets.only(top: 5),
                           width: MediaQuery.of(context).size.width,
@@ -107,16 +123,22 @@ class PostView extends GetWidget<PostController> {
                         const SizedBox(
                           height: 12,
                         ),
-                        Text('${post.body}'),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 4, 8, 4),
+                          child: Text(
+                            '${post.body}',
+                            style: GoogleFonts.openSans(),
+                          ),
+                        ),
                         post.image != null
                             ? Container(
                                 width: MediaQuery.of(context).size.width,
                                 height: 180,
                                 margin: const EdgeInsets.only(top: 5),
-                                decoration: const BoxDecoration(
-                                    // image: DecorationImage(
-                                    //     image: NetworkImage('${post.image}'),
-                                    //     fit: BoxFit.cover),
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: NetworkImage('${post.image}'),
+                                        fit: BoxFit.cover),
                                     color: Colors.redAccent),
                               )
                             : SizedBox(

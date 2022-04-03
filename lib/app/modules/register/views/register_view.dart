@@ -66,15 +66,15 @@ class RegisterView extends GetWidget<RegisterController> {
                                     }
                                   },
                                   onSaved: (v) {},
-                                  keyboardType: TextInputType.emailAddress,
+                                  keyboardType: TextInputType.name,
                                   decoration: InputDecoration(
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     labelText: "name",
-                                    prefixIcon: const Icon(Icons.email),
                                   ),
                                 ),
+                                const SizedBox(height: 10),
                                 TextFormField(
                                   controller: controller.emailController,
                                   validator: (v) {
@@ -124,7 +124,7 @@ class RegisterView extends GetWidget<RegisterController> {
                                     prefixIcon: const Icon(Icons.password),
                                   ),
                                 ),
-                                const SizedBox(height: 20),
+                                const SizedBox(height: 10),
                                 Obx(() => controller.isloading.value == true
                                     ? const Center(
                                         child: CircularProgressIndicator())

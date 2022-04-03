@@ -43,6 +43,7 @@ class SplashView extends GetWidget<SplashController> {
                           'assets/images/logos/logotext.svg',
                           width: 201.41,
                           height: 77.67,
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ],

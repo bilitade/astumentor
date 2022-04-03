@@ -7,7 +7,6 @@ import '../Model/ApiResponse.dart';
 import '../services/auth_service.dart';
 import '../Model/post.dart';
 import '../config.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 Future<ApiResponse> getPosts() async {
   ApiResponse apiResponse = ApiResponse();

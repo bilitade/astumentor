@@ -11,6 +11,8 @@ abstract class Routes {
   static const PANOROMA = _Paths.PANOROMA;
   static const PANORAMA = _Paths.PANORAMA;
   static const COMMENT = _Paths.COMMENT;
+  static const CHAT = _Paths.CHAT;
+  static const PROFILE = _Paths.PROFILE;
 }
 
 abstract class _Paths {
@@ -23,4 +25,6 @@ abstract class _Paths {
   static const PANOROMA = '/panoroma';
   static const PANORAMA = '/panorama';
   static const COMMENT = '/comment';
+  static const CHAT = '/chat';
+  static const PROFILE = '/profile';
 }
