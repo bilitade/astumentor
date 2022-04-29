@@ -12,7 +12,7 @@ import '../../../routes/app_pages.dart';
 class PostController extends GetxController {
   final postList = <dynamic>[].obs;
   final isloading = true.obs;
-  int userId = 0;
+  var userId = 0.obs;
 
   @override
   Future<void> onInit() async {
@@ -22,7 +22,7 @@ class PostController extends GetxController {
   }
 
   Future<void> retrievePosts() async {
-    userId = await getUserId();
+    userId.value = await getUserId();
     ApiResponse response = await getPosts();
 
     if (response.error == null) {
@@ -60,8 +60,4 @@ class PostController extends GetxController {
       Get.snackbar("error", "'${response.error}'");
     }
   }
-
-
-
-  
 }

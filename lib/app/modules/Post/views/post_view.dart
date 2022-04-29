@@ -1,11 +1,11 @@
 import 'package:astumentor/app/routes/app_pages.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:jiffy/jiffy.dart';
 import 'package:flutter/material.dart';
 import '../../../data/Model/post.dart';
 import 'package:get/get.dart';
+
+import 'package:cached_network_image/cached_network_image.dart';
 import './util.dart';
-import 'package:intl/intl.dart';
 
 import '../controllers/post_controller.dart';
 
@@ -48,15 +48,24 @@ class PostView extends GetWidget<PostController> {
                                     Container(
                                       width: 38,
                                       height: 38,
-                                      decoration: BoxDecoration(
-                                          image: post.user!.image != null
-                                              ? DecorationImage(
-                                                  image: NetworkImage(
-                                                      '${post.user!.image}'))
-                                              : null,
-                                          borderRadius:
-                                              BorderRadius.circular(25),
-                                          color: Colors.amber),
+
+                                      child: ClipOval(
+                                       
+                                        child: CachedNetworkImage(
+                                               width: 80.0,
+                                               height: 80.0,
+                                          fit: BoxFit.contain,
+                                          imageUrl: '${post.user!.image}',
+                                          progressIndicatorBuilder: (context, url,
+                                                  downloadProgress) =>
+                                              CircularProgressIndicator(
+                                                  value:
+                                                      downloadProgress.progress),
+                                          errorWidget: (context, url, error) =>
+                                              Icon(Icons.error),
+                                        ),
+                                      ),
+
                                     ),
                                     const SizedBox(
                                       width: 10,
@@ -135,11 +144,25 @@ class PostView extends GetWidget<PostController> {
                                 width: MediaQuery.of(context).size.width,
                                 height: 180,
                                 margin: const EdgeInsets.only(top: 5),
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: NetworkImage('${post.image}'),
-                                        fit: BoxFit.cover),
-                                    color: Colors.redAccent),
+
+                                child: CachedNetworkImage(
+                                  fit: BoxFit.contain,
+                                  imageUrl: '${post.image}',
+                                  progressIndicatorBuilder:
+                                      (context, url, downloadProgress) =>
+                                          Center(
+                                    child: SizedBox(
+                                      height: 10,
+                                      width: 10,
+                                      child: CircularProgressIndicator(
+                                          value: downloadProgress.progress),
+                                    ),
+                                  ),
+                                  errorWidget: (context, url, error) =>
+                                      Icon(Icons.error),
+                                ),
+
+                        
                               )
                             : SizedBox(
                                 height: post.image != null ? 0 : 10,

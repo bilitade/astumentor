@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import '../../../data/services/auth_service.dart';
 import '../../../data/Model/user.dart';
@@ -39,7 +41,7 @@ class LoginController extends GetxController {
     SharedPreferences pref = await SharedPreferences.getInstance();
     await pref.setString('token', user.token ?? '');
     await pref.setInt('userId', user.id ?? 0);
-    Get.toNamed(Routes.HOME);
+    Get.offAllNamed(Routes.HOME);
   }
 
   void loginUser() async {
@@ -48,6 +50,7 @@ class LoginController extends GetxController {
         await login(emailController.text, passwordController.text);
     isloading(false);
     if (response.error == null) {
+         inspect(response.data);
       _saveAndRedirectToHome(response.data as User);
     } else if (response.error == unauthorized) {
       Get.snackbar("message", "unauthorized");

@@ -1,6 +1,6 @@
 // config vars
 
-const baseURL = 'http://8bdb-89-38-99-16.ngrok.io/api';
+const baseURL = 'http://6d9b-196-189-233-4.ngrok.io/api';
 const loginURL = baseURL + '/login';
 const registerURL = baseURL + '/register';
 const logoutURL = baseURL + '/logout';

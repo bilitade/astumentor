@@ -14,9 +14,10 @@ Future<ApiResponse> getPosts() async {
     String token = await getToken();
     final response = await http.get(Uri.parse(postsURL), headers: {
       'Accept': 'application/json',
+      'Connection': "keep-alive",
       'Authorization': 'Bearer $token'
     });
-
+    print(response.statusCode);
     switch (response.statusCode) {
       case 200:
         apiResponse.data = jsonDecode(response.body)['posts']
@@ -46,12 +47,13 @@ Future<ApiResponse> createPost(String body, String? image) async {
     final response = await http.post(Uri.parse(postsURL),
         headers: {
           'Accept': 'application/json',
+          'Connection': "keep-alive",
           'Authorization': 'Bearer $token'
         },
         body: image != null ? {'body': body, 'image': image} : {'body': body});
 
     // here if the image is null we just send the body, if not null we send the image too
-
+    print(response.statusCode);
     switch (response.statusCode) {
       case 200:
         apiResponse.data = jsonDecode(response.body);
@@ -81,11 +83,12 @@ Future<ApiResponse> editPost(int postId, String body) async {
     String token = await getToken();
     final response = await http.put(Uri.parse('$postsURL/$postId'), headers: {
       'Accept': 'application/json',
+      'Connection': "keep-alive",
       'Authorization': 'Bearer $token'
     }, body: {
       'body': body
     });
-
+    print(response.statusCode);
     switch (response.statusCode) {
       case 200:
         apiResponse.data = jsonDecode(response.body)['message'];
@@ -111,12 +114,13 @@ Future<ApiResponse> deletePost(int postId) async {
   ApiResponse apiResponse = ApiResponse();
   try {
     String token = await getToken();
-    final response = await http.delete(Uri.parse('$postsURL/$postId'),
-        headers: {
-          'Accept': 'application/json',
-          'Authorization': 'Bearer $token'
-        });
-
+    final response =
+        await http.delete(Uri.parse('$postsURL/$postId'), headers: {
+      'Accept': 'application/json',
+      'Connection': "keep-alive",
+      'Authorization': 'Bearer $token'
+    });
+    print(response.statusCode);
     switch (response.statusCode) {
       case 200:
         apiResponse.data = jsonDecode(response.body)['message'];
@@ -142,12 +146,13 @@ Future<ApiResponse> likeUnlikePost(int postId) async {
   ApiResponse apiResponse = ApiResponse();
   try {
     String token = await getToken();
-    final response = await http.post(Uri.parse('$postsURL/$postId/likes'),
-        headers: {
-          'Accept': 'application/json',
-          'Authorization': 'Bearer $token'
-        });
-
+    final response =
+        await http.post(Uri.parse('$postsURL/$postId/likes'), headers: {
+      'Accept': 'application/json',
+      'Connection': "keep-alive",
+      'Authorization': 'Bearer $token'
+    });
+    print(response.statusCode);
     switch (response.statusCode) {
       case 200:
         apiResponse.data = jsonDecode(response.body)['message'];

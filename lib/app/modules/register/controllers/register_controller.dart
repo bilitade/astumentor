@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
@@ -86,6 +87,7 @@ class RegisterController extends GetxController {
         nameController.text, emailController.text, passwordController.text);
 
     if (response.error == null) {
+      inspect(response.data);
       _saveAndRedirectToHome(response.data as User);
     } else {
       Get.snackbar("error", '${response.error}');

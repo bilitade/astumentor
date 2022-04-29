@@ -19,14 +19,10 @@ class HomeView extends GetWidget<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff23047).withOpacity(0.5),
-      appBar: AppBar(
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(5),
-          ),
-        ),
-        elevation: 1.5,
+      backgroundColor: const Color(0x0ff23047).withOpacity(0.5), appBar: AppBar(
+       
+      
+       elevation: 1.5,
         shadowColor: Colors.blueAccent,
         backgroundColor: Colors.blue,
         title:
@@ -39,8 +35,8 @@ class HomeView extends GetWidget<HomeController> {
                     title: "Confrim",
                     middleText: "Are you sure you want to logout? ",
                     backgroundColor: Colors.white,
-                    titleStyle: TextStyle(color: Colors.black),
-                    middleTextStyle: TextStyle(color: Colors.black),
+                    titleStyle: const TextStyle(color: Colors.black),
+                    middleTextStyle: const TextStyle(color: Colors.black),
                     onCancel: () {},
                     onConfirm: () {
                       controller.Logout();
@@ -51,6 +47,7 @@ class HomeView extends GetWidget<HomeController> {
                 color: Colors.black,
               ))
         ],
+
       ),
       bottomNavigationBar: buildBottomNavigationMenu(context, controller),
       body: Obx(
@@ -66,7 +63,7 @@ class HomeView extends GetWidget<HomeController> {
           ),
         ),
       ),
-      drawer: buildDrawer(),
+      drawer: buildDrawer(context, controller)
     );
   }
 }

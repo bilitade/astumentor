@@ -12,7 +12,7 @@ Future<ApiResponse> login(String email, String password) async {
   ApiResponse apiResponse = ApiResponse();
   try {
     final response = await http.post(Uri.parse(loginURL),
-        headers: {'Accept': 'application/json'},
+        headers: {'Accept': 'application/json','Connection':"keep-alive", },
         body: {'email': email, 'password': password});
 
     switch (response.statusCode) {
@@ -26,6 +26,7 @@ Future<ApiResponse> login(String email, String password) async {
       case 403:
         apiResponse.error = jsonDecode(response.body)['message'];
         break;
+        
       default:
         apiResponse.error = somethingWentWrong;
         break;
@@ -43,7 +44,8 @@ Future<ApiResponse> register(String name, String email, String password) async {
   ApiResponse apiResponse = ApiResponse();
   try {
     final response = await http.post(Uri.parse(registerURL), headers: {
-      'Accept': 'application/json'
+      'Accept': 'application/json',
+      'Connection':"keep-alive",
     }, body: {
       'name': name,
       'email': email,
@@ -76,6 +78,7 @@ Future<ApiResponse> getUserDetail() async {
     String token = await getToken();
     final response = await http.get(Uri.parse(userURL), headers: {
       'Accept': 'application/json',
+      'Connection':"keep-alive",
       'Authorization': 'Bearer $token'
     });
 
@@ -103,7 +106,8 @@ Future<ApiResponse> updateUser(String name, String? image) async {
     String token = await getToken();
     final response = await http.put(Uri.parse(userURL),
         headers: {
-          'Accept': 'application/json',
+          'Accept': 'application/json'
+          ,'Connection':"keep-alive",
           'Authorization': 'Bearer $token'
         },
         body: image == null
