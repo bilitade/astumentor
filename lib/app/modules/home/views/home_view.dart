@@ -1,17 +1,14 @@
 import 'package:astumentor/app/modules/chat/views/chat_view.dart';
-
 import 'package:astumentor/app/modules/home/views/utils/drawer.dart';
-
 import '../../Post/views/post_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../panorama/views/panorama_view.dart';
 import '../../chat/views/chat_view.dart';
-
 import 'package:get/get.dart';
 import './utils/bottomNav.dart';
-
 import '../controllers/home_controller.dart';
+
 
 class HomeView extends GetWidget<HomeController> {
   const HomeView({Key? key}) : super(key: key);

@@ -21,40 +21,30 @@ Widget buildDrawer(context, controller) {
           currentAccountPicture: CircleAvatar(
             radius: 50,
             child: Obx(() => ClipOval(
-      //          child: FadeInImage.memoryNetwork(
-      //                 placeholder: kTransparentImage,
-      //                 imageErrorBuilder: (context, error, StackTrace) {
-      //                       return const Image(
-      //                           height: 38,
-      //                           width: 38,
-      //                           image: AssetImage("assets/extra/broken.png"));
-      //                     }, 
-      //                   image:controller.user.value.image,
-      //                 fit: BoxFit.contain,
-      // )
-child: CachedNetworkImage(
-                                         fit: BoxFit.contain,
-                                        imageUrl:controller.user.value.image
-                                            ,
-                                        progressIndicatorBuilder: (context, url,
-                                                downloadProgress) =>
-                                            SizedBox(
-                                                height: 50.0,
-                                               width: 50.0,
-                                              child: CircularProgressIndicator(
-                                                
-                                                  value:
-                                                      downloadProgress.progress),
-                                            ),
-                                        errorWidget: (context, url, error) =>
-                                            Icon(Icons.error),
-                                      ),
-
-
-      
-      )
-      
-      ),
+                  //          child: FadeInImage.memoryNetwork(
+                  //                 placeholder: kTransparentImage,
+                  //                 imageErrorBuilder: (context, error, StackTrace) {
+                  //                       return const Image(
+                  //                           height: 38,
+                  //                           width: 38,
+                  //                           image: AssetImage("assets/extra/broken.png"));
+                  //                     },
+                  //                   image:controller.user.value.image,
+                  //                 fit: BoxFit.contain,
+                  // )
+                  child: (controller.user.value.image!="")? CachedNetworkImage(
+                    fit: BoxFit.contain,
+                    imageUrl: controller.user.value.image,
+                    progressIndicatorBuilder:
+                        (context, url, downloadProgress) => SizedBox(
+                      height: 50.0,
+                      width: 50.0,
+                      child: CircularProgressIndicator(
+                          value: downloadProgress.progress),
+                    ),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
+                  ):Icon(Icons.error),
+                )),
             backgroundColor: Colors.white,
           ),
           child: Obx(() => Column(

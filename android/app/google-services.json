@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "862220216015",
+    "project_id": "astumentor",
+    "storage_bucket": "astumentor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862220216015:android:9afcec597a978bdfff39ba",
+        "android_client_info": {
+          "package_name": "com.astu.astumentor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "862220216015-9tbhj0ti47pgj29ur7og5dol03gutr1j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLIkbPYEyZwF4TAmG7kMUNiNucdsr_Ncs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "862220216015-9tbhj0ti47pgj29ur7og5dol03gutr1j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
