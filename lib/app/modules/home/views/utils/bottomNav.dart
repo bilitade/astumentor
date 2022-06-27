@@ -18,7 +18,7 @@ buildBottomNavigationMenu(context, HomeController) {
           showSelectedLabels: true,
           onTap: HomeController.changeTabIndex,
           currentIndex: HomeController.tabIndex.value,
-          backgroundColor: Colors.blue,
+          backgroundColor: Color.fromRGBO(35,181,116,1),
           unselectedItemColor: Color.fromARGB(255, 0, 0, 0).withOpacity(0.5),
           selectedItemColor: Colors.white,
           unselectedLabelStyle: unselectedLabelStyle,
@@ -28,7 +28,7 @@ buildBottomNavigationMenu(context, HomeController) {
               icon: Container(
                 margin: const EdgeInsets.only(bottom: 7),
                 child: const Icon(
-                  Icons.newspaper,
+                  Icons.newspaper_outlined,
                   size: 20.0,
                 ),
               ),
@@ -49,11 +49,11 @@ buildBottomNavigationMenu(context, HomeController) {
               icon: Container(
                 margin: const EdgeInsets.only(bottom: 7),
                 child: const Icon(
-                  Icons.panorama_horizontal,
+                  Icons.panorama_horizontal_outlined,
                   size: 20.0,
                 ),
               ),
-              label: 'Pano',
+              label: 'Maps',
             ),
             BottomNavigationBarItem(
               icon: Container(
@@ -63,7 +63,7 @@ buildBottomNavigationMenu(context, HomeController) {
                   size: 20.0,
                 ),
               ),
-              label: 'Chats',
+              label: 'pano',
             ),
           ],
         ),

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'app/routes/app_pages.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 
 Future<void> _messageHandler(RemoteMessage message) async {
   print('background message ${message.notification!.body}');
@@ -16,7 +17,14 @@ Future<void> main() async {
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Application",
+      title: "ASTU Mentor",
+      
+    theme: ThemeData(
+    colorScheme: ColorScheme.fromSwatch(
+      primarySwatch: Colors.blue,
+    
+  	),
+  ),
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
     ),

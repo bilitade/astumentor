@@ -24,7 +24,7 @@ class HomeController extends GetxController {
 
     getUser();
     messaging.getToken().then((value) {
-      print(value);
+      print("token: $value");
     });
     FirebaseMessaging.onMessage.listen((RemoteMessage event) {
       print("message recieved");
@@ -54,22 +54,7 @@ class HomeController extends GetxController {
 
       
 
-      // showDialog(
-      //     context: context,
-      //     builder: (BuildContext context) {
-      //       return AlertDialog(
-      //         title: Text("Notification"),
-      //         content: Text(event.notification!.body!),
-      //         actions: [
-      //           TextButton(
-      //             child: Text("Ok"),
-      //             onPressed: () {
-      //               Navigator.of(context).pop();
-      //             },
-      //           )
-      //         ],
-      //       );
-      //     });
+     
     });
   }
 

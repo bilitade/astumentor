@@ -1,7 +1,7 @@
+import 'package:astumentor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,35 +15,30 @@ Widget buildDrawer(context, controller) {
             gradient: LinearGradient(
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
-              colors: <Color>[Colors.blueAccent, Colors.blue],
+              colors: <Color>[
+                Color.fromRGBO(35, 181, 116, 1),
+                Color.fromRGBO(35, 181, 116, 0.7)
+              ],
             ),
           ),
           currentAccountPicture: CircleAvatar(
             radius: 50,
             child: Obx(() => ClipOval(
-                  //          child: FadeInImage.memoryNetwork(
-                  //                 placeholder: kTransparentImage,
-                  //                 imageErrorBuilder: (context, error, StackTrace) {
-                  //                       return const Image(
-                  //                           height: 38,
-                  //                           width: 38,
-                  //                           image: AssetImage("assets/extra/broken.png"));
-                  //                     },
-                  //                   image:controller.user.value.image,
-                  //                 fit: BoxFit.contain,
-                  // )
-                  child: (controller.user.value.image!="")? CachedNetworkImage(
-                    fit: BoxFit.contain,
-                    imageUrl: controller.user.value.image,
-                    progressIndicatorBuilder:
-                        (context, url, downloadProgress) => SizedBox(
-                      height: 50.0,
-                      width: 50.0,
-                      child: CircularProgressIndicator(
-                          value: downloadProgress.progress),
-                    ),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
-                  ):Icon(Icons.error),
+                  child: (controller.user.value.image != "")
+                      ? CachedNetworkImage(
+                          fit: BoxFit.contain,
+                          imageUrl: controller.user.value.image,
+                          progressIndicatorBuilder:
+                              (context, url, downloadProgress) => SizedBox(
+                            height: 50.0,
+                            width: 50.0,
+                            child: CircularProgressIndicator(
+                                value: downloadProgress.progress),
+                          ),
+                          errorWidget: (context, url, error) =>
+                              Icon(Icons.error),
+                        )
+                      : Icon(Icons.error),
                 )),
             backgroundColor: Colors.white,
           ),
@@ -76,11 +71,6 @@ Widget buildDrawer(context, controller) {
           onTap: null,
         ),
         const ListTile(
-          leading: Icon(Icons.event),
-          title: Text('Events'),
-          onTap: null,
-        ),
-        const ListTile(
           leading: Icon(Icons.photo),
           title: Text('Announcements'),
           onTap: null,
@@ -89,6 +79,23 @@ Widget buildDrawer(context, controller) {
           leading: Icon(Icons.bookmarks),
           title: Text('Curiculum'),
           onTap: null,
+        ),
+        const ListTile(
+          leading: Icon(Icons.bookmark_add_rounded),
+          title: Text('My Classes'),
+          onTap: null,
+        ),
+        const ListTile(
+          leading: Icon(Icons.event),
+          title: Text('Events'),
+          onTap: null,
+        ),
+        ListTile(
+          leading: Icon(Icons.group),
+          title: Text('Groups'),
+          onTap: () {
+            Get.toNamed(Routes.GROUP);
+          },
         ),
         const ListTile(
           leading: Icon(Icons.info),

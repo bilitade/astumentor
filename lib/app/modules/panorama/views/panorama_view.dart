@@ -18,17 +18,18 @@ class PanoramaView extends GetView<PanoramaController> {
               Hotspot(
                 latitude: -14.0,
                 longitude: 0.0,
-                width: 90,
-                height: 75,
+                width: 0,
+                height: 7,
                 widget: hotspotButton(
-                    text: "Outside",
+                    text: "Hawas Street",
                     icon: Icons.open_in_browser,
                     onPressed: () => {controller.swap(1)}),
               ),
             ],
-            child: Image.asset('assets/images/pano/pano1.jpg'),
+            child: Image.asset('assets/images/pano/IMG_5310.jpg'),
           );
-        } else if (controller.val.value == 1) {
+        }
+         else if (controller.val.value == 1) {
           return Panorama(
             animSpeed: 1.0,
             hotspots: [
@@ -38,7 +39,7 @@ class PanoramaView extends GetView<PanoramaController> {
                 width: 90,
                 height: 75,
                 widget: hotspotButton(
-                    text: "inside",
+                    text: "main Gate",
                     icon: Icons.open_in_browser,
                     onPressed: () => {controller.swap(0)}),
               ),
@@ -53,7 +54,7 @@ class PanoramaView extends GetView<PanoramaController> {
                     onPressed: () => {controller.swap(5)}),
               ),
             ],
-            child: Image.asset('assets/images/pano/pano2.jpg'),
+            child: Image.asset('assets/images/pano/IMG_5311.jpg'),
           );
         } else if (controller.val.value == 2) {
           return Panorama(

@@ -13,6 +13,9 @@ abstract class Routes {
   static const COMMENT = _Paths.COMMENT;
   static const CHAT = _Paths.CHAT;
   static const PROFILE = _Paths.PROFILE;
+  static const MAP = _Paths.MAP;
+  static const GROUP = _Paths.GROUP;
+  static const GROUP_HOME = _Paths.GROUP_HOME;
 }
 
 abstract class _Paths {
@@ -27,4 +30,7 @@ abstract class _Paths {
   static const COMMENT = '/comment';
   static const CHAT = '/chat';
   static const PROFILE = '/profile';
+  static const MAP = '/map';
+  static const GROUP = '/group';
+  static const GROUP_HOME = '/group-home';
 }

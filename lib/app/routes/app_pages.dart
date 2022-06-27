@@ -1,18 +1,23 @@
 import 'package:get/get.dart';
 
+import '../modules/GroupHome/bindings/group_home_binding.dart';
+import '../modules/GroupHome/views/group_home_view.dart';
 import '../modules/Post/bindings/post_binding.dart';
 import '../modules/Post/views/post_view.dart';
 import '../modules/chat/bindings/chat_binding.dart';
 import '../modules/chat/views/chat_view.dart';
 import '../modules/comment/bindings/comment_binding.dart';
 import '../modules/comment/views/comment_view.dart';
+import '../modules/group/bindings/group_binding.dart';
+import '../modules/group/views/group_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/map/bindings/map_binding.dart';
+import '../modules/map/views/map_view.dart';
 import '../modules/panorama/bindings/panorama_binding.dart';
 import '../modules/panorama/views/panorama_view.dart';
-
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
@@ -66,6 +71,21 @@ class AppPages {
       name: _Paths.CHAT,
       page: () => ChatView(),
       binding: ChatBinding(),
+    ),
+    GetPage(
+      name: _Paths.MAP,
+      page: () => MapView(),
+      binding: MapBinding(),
+    ),
+    GetPage(
+      name: _Paths.GROUP,
+      page: () => GroupView(),
+      binding: GroupBinding(),
+    ),
+    GetPage(
+      name: _Paths.GROUP_HOME,
+      page: () => GroupHomeView(),
+      binding: GroupHomeBinding(),
     ),
   ];
 }
